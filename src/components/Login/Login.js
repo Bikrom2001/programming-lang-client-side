@@ -1,23 +1,52 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../contexts/UserContext';
 
 const Login = () => {
+
+    const {signIn} = useContext(AuthContext);
+    const [error, setError] = useState('');
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            form.reset();
+            setError('');
+            toast.success('Login Success !',{autoClose: 1000});
+        })
+        .catch(error => {
+            console.error(error)
+            const errorMessage = error.message;
+            setError(errorMessage);
+        })
+
+        console.log(email,password);
+    }
+
     return (
         <section className='bg-gray-600 pb-6 pt-6'>
             <div className="w-full max-w-md mx-auto p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
 
                 <h1 className="text-2xl font-bold text-center mb-2">Login</h1>
                 <p className="text-sm dark:text-gray-400 text-center mb-5">Login to access your account</p>
-                <form className="space-y-6 ng-untouched ng-pristine ng-valid">
+                <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
                         <label htmlFor="username" className="block text-left dark:text-gray-400">Email address</label>
-                        <input type="email" name="email" id="username" placeholder="Email address" className="w-full px-4 py-3 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                        <input type="email" name="email" id="username" placeholder="Email address" className="w-full px-4 py-3 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
                     </div>
                     <div className="space-y-1 text-sm">
                         <label htmlFor="password" className="block dark:text-gray-400">Password</label>
-                        <input type="password" name="password" id="password" placeholder="*********" className="w-full px-4 py-3 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+                        <input type="password" name="password" id="password" placeholder="*********" className="w-full px-4 py-3 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
                         <div className="flex justify-end text-xs dark:text-gray-400">
-                            <Link rel="noopener noreferrer" to='/'>Forgot Password?</Link>
+                            <Link rel="noopener noreferrer" to='/'>{error}</Link>
                         </div>
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400 uppercase">Login</button>

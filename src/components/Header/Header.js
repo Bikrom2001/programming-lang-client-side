@@ -75,6 +75,15 @@ const Header = () => {
                 Login
               </Link>
             </li>
+            <li>
+              <Link
+                aria-label='Login'
+                title='Login'
+                className='font-medium tracking-wide uppercase text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+              >
+                logout
+              </Link>
+            </li>
           </ul>
           <div className='lg:hidden'>
             <button
