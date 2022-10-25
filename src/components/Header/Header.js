@@ -77,48 +77,49 @@ const Header = () => {
               Blog
             </Link>
           </li>
-          { 
-          !user?.uid ?
-          <li>
-            <Link
-              to='/login'
-              aria-label='Login'
-              title='Login'
-              className='font-medium tracking-wide uppercase text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-            >
-              Login
-            </Link>
-          </li>
-          :
-         <>
-          <li>
-            <Link
-              onClick={handleLogOut}
-              aria-label='logout'
-              title='logout'
-              className='font-medium tracking-wide uppercase text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-            >
-              logout
-            </Link>
-          </li>
-          <li>
-            <Link
-            to='/profile'
-              aria-label='Profile'
-              title='Profile'
-              className='font-medium tracking-wide uppercase text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-            >
-              {
-                user?.photoURL ?
-             <img src={user?.photoURL} alt="" className="self-center flex-shrink-0 w-10 h-10 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
-             :
-             <FaUser className="self-center flex-shrink-0 w-10 h-10 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700"></FaUser>
-              }
-             </Link>
-          </li>
-         
-         </>
-            }
+          {
+            !user?.uid ?
+              <li>
+                <Link
+                  to='/login'
+                  aria-label='Login'
+                  title='Login'
+                  className='font-medium tracking-wide uppercase text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                >
+                  Login
+                </Link>
+              </li>
+              :
+              <>
+                <li>
+                  <Link
+                  to='/login'
+                    onClick={handleLogOut}
+                    aria-label='logout'
+                    title='logout'
+                    className='font-medium tracking-wide uppercase text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                  >
+                    logout
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/profile'
+                    aria-label='Profile'
+                    title='Profile'
+                    className='font-medium tracking-wide uppercase text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                  >
+                    {
+                      user?.photoURL ?
+                        <img src={user?.photoURL} alt="" className="self-center flex-shrink-0 w-10 h-10 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
+                        :
+                        <FaUser className="self-center flex-shrink-0 w-10 h-10 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700"></FaUser>
+                    }
+                  </Link>
+                </li>
+
+              </>
+          }
         </ul>
         <div className='lg:hidden'>
           <button
@@ -214,16 +215,49 @@ const Header = () => {
                         Blog
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        to='/login'
-                        aria-label='Login'
-                        title='Login'
-                        className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                      >
-                        Login
-                      </Link>
-                    </li>
+                    {
+                      !user?.uid ?
+                        <li>
+                          <Link
+                            to='/login'
+                            aria-label='Login'
+                            title='Login'
+                            className='font-medium tracking-wide uppercase text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                          >
+                            Login
+                          </Link>
+                        </li>
+                        :
+                        <>
+                          <li>
+                            <Link
+                            to='/login'
+                              onClick={handleLogOut}
+                              aria-label='logout'
+                              title='logout'
+                              className='font-medium tracking-wide uppercase text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                            >
+                              logout
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to='/profile'
+                              aria-label='Profile'
+                              title='Profile'
+                              className='font-medium tracking-wide uppercase text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
+                            >
+                              {
+                                user?.photoURL ?
+                                  <img src={user?.photoURL} alt="" className="self-center flex-shrink-0 w-10 h-10 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
+                                  :
+                                  <FaUser className="self-center flex-shrink-0 w-10 h-10 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700"></FaUser>
+                              }
+                            </Link>
+                          </li>
+
+                        </>
+                    }
                   </ul>
                 </nav>
               </div>
