@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/UserContext';
 
 const Register = () => {
+
+    const {user} = useContext(AuthContext);
+
     return (
         <section className='bg-gray-600 pb-6 pt-6'>
             <div className="w-full max-w-md mx-auto p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
 
                 <h1 className="text-2xl font-bold text-center mb-5">Create an account</h1>
+                <p>{user.name}</p>
               
                 <form className="space-y-6 ng-untouched ng-pristine ng-valid">
                     <div className="space-y-1 text-sm">
