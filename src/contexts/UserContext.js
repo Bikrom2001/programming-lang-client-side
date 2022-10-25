@@ -42,6 +42,9 @@ const UserContext = ({ children }) => {
         return signInWithPopup(auth, githubProvider);
     }
 
+    // update user 
+    
+
     useEffect( () => {
       const unSubscribe =  onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
