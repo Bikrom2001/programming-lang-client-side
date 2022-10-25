@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/UserContext';
 
 const Register = () => {
 
-    const { createUser, verifyEmail, signInWithGoogle, signInWithGithHub} = useContext(AuthContext);
+    const { createUser, verifyEmail, updateUserProfile , signInWithGoogle, signInWithGithHub} = useContext(AuthContext);
     const [error, setError] = useState('');
 
     const handleSubmit = (event) => {
@@ -22,6 +22,7 @@ const Register = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                handleUpdateUserProfile(name, photoURL);
                 setError('');
                 toast.success('Create an account Success !', { autoClose: 1000 });
                 // email verify
@@ -36,6 +37,17 @@ const Register = () => {
                 setError(errorMessage);
             })
 
+    }
+
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+        .then(() => {})
+        .catch(error => console.error(error))
     }
 
 
