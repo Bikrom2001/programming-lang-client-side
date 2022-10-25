@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/UserContext';
 
 const Register = () => {
 
-    const {createUser} = useContext(AuthContext);
+    const {createUser, verifyEmail} = useContext(AuthContext);
     const [error, setError] = useState('');
 
     const handleSubmit = (event) => {
@@ -24,6 +24,11 @@ const Register = () => {
             form.reset();
             setError('');
             toast.success('Create an account Success !',{autoClose: 1000});
+            // email verify
+            verifyEmail()
+            .then(() => {
+                toast.warning('Please check your Email and Verify !',{autoClose: 1500});
+            })
         })
         .catch(error =>{
             console.error(error)

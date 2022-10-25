@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import {createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut} from 'firebase/auth';
+import {createUserWithEmailAndPassword, getAuth, sendEmailVerification, signInWithEmailAndPassword, signOut} from 'firebase/auth';
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext();
@@ -24,8 +24,13 @@ const UserContext = ({ children }) => {
         return signOut(auth);
     }
 
+    // Email verify
+    const verifyEmail = () => {
+        return sendEmailVerification(auth.currentUser);
+    }
 
-    const authInfo = { user, createUser, signIn, logOut};
+
+    const authInfo = { user, createUser, signIn, logOut, verifyEmail};
 
 
     return (

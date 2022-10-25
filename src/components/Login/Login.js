@@ -31,6 +31,7 @@ const Login = () => {
         console.log(email,password);
     }
 
+
     return (
         <section className='bg-gray-600 pb-6 pt-6'>
             <div className="w-full max-w-md mx-auto p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
@@ -46,8 +47,9 @@ const Login = () => {
                         <label htmlFor="password" className="block dark:text-gray-400">Password</label>
                         <input type="password" name="password" id="password" placeholder="*********" className="w-full px-4 py-3 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required />
                         <div className="flex justify-end text-xs dark:text-gray-400">
-                            <Link rel="noopener noreferrer" to='/'>{error}</Link>
+                            <Link rel="noopener noreferrer" to='/'>Forgot password?</Link>
                         </div>
+                        <Link rel="noopener noreferrer" className='text-red-500'>{error}</Link>
                     </div>
                     <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400 uppercase">Login</button>
                 </form>
