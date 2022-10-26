@@ -7,43 +7,51 @@ const auth = getAuth(app);
 
 const UserContext = ({ children }) => {
 
-   const [user, setUser] = useState({});
+   const [user, setUser] = useState(null);
+   const [loading, setLoading] = useState(true);
 
    const googleProvider = new GoogleAuthProvider();
    const githubProvider = new GithubAuthProvider();
 
     // Create a Users
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     // login User
     const signIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     // logout 
     const logOut = () => {
+        setLoading(true);
         return signOut(auth);
     }
 
     // Email verify
     const verifyEmail = () => {
+        setLoading(true);
         return sendEmailVerification(auth.currentUser);
     }
 
     // google login
     const signInWithGoogle = () => {
+        setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
 
     // GitHub login
     const signInWithGithHub = () => {
+        setLoading(true);
         return signInWithPopup(auth, githubProvider);
     }
 
     // update user 
     const updateUserProfile = (profile) => {
+        setLoading(true);
         return updateProfile(auth.currentUser, profile);
     }   
 
@@ -52,6 +60,7 @@ const UserContext = ({ children }) => {
       const unSubscribe =  onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             console.log('auth state changed', currentUser);
+            setLoading(false);
         })
         return () => {
             unSubscribe(); 
@@ -59,7 +68,7 @@ const UserContext = ({ children }) => {
     },[])
 
 
-    const authInfo = { user, createUser, signIn, logOut, verifyEmail, updateUserProfile, signInWithGoogle, signInWithGithHub};
+    const authInfo = {loading, user, createUser, signIn, logOut, verifyEmail, updateUserProfile, signInWithGoogle, signInWithGithHub};
 
 
     return (

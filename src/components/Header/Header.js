@@ -93,7 +93,6 @@ const Header = () => {
               <>
                 <li>
                   <Link
-                  to='/login'
                     onClick={handleLogOut}
                     aria-label='logout'
                     title='logout'

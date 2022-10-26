@@ -17,7 +17,7 @@ const SingleCourses = ({coures}) => {
             <p>{description.slice(0, 100) + '...'}</p>
             <div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-400">
             <Link to={`/details/${id}`}><button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-100 dark:text-gray-100">Details</button></Link>
-            <button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-100 dark:text-gray-100">Check Out</button>
+            <Link to={`/checkout/${id}`}><button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-100 dark:text-gray-100">Check Out</button></Link>
             </div>
         </div>
     </article>
