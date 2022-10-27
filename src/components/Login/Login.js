@@ -44,6 +44,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 toast.success('Create an account Success !', { autoClose: 1000 });
+                navigate(from,{replace: true});
             })
             .catch(error => console.error(error))
     }

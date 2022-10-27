@@ -7,11 +7,20 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
+  const [accpected, setAccpected] = useState(false);
+
+  console.log(accpected);
+
   const handleLogOut = () => {
     logOut()
       .then(() => {
       })
       .catch(error => console.error(error))
+  }
+
+  const handleAccted = (event) => {
+
+    setAccpected(event.target.checkbox);
   }
 
 
@@ -119,6 +128,19 @@ const Header = () => {
 
               </>
           }
+
+          <li>
+            <label for="Toggle2" className="inline-flex items-center space-x-4 cursor-pointer dark:text-black">
+              <span>This</span>
+              <span onClick={handleAccted} className="relative">
+                <input id="Toggle2" type="checkbox" className="hidden peer" />
+                <div className="w-10 h-4 rounded-full shadow dark:bg-gray-600 peer-checked:dark:bg-violet-400"></div>
+                <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto dark:bg-violet-400"></div>
+              </span>
+              <span>That</span>
+            </label>
+          </li>
+
         </ul>
         <div className='lg:hidden'>
           <button
@@ -230,7 +252,7 @@ const Header = () => {
                         <>
                           <li>
                             <Link
-                            to='/login'
+                              to='/login'
                               onClick={handleLogOut}
                               aria-label='logout'
                               title='logout'
