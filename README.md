@@ -1,4 +1,4 @@
-# Developer-Grid-Quiz-Apps
+# Global-Online-Programming-language-courses
 Global-Online-Programming-language-courses
 
 ## Live Link

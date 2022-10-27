@@ -1,15 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/UserContext';
-import { FaUser } from "react-icons/fa";
+import { FaMoon, FaSun, FaUser } from "react-icons/fa";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
-  const [accpected, setAccpected] = useState(false);
+  const [show, setShow] = useState(true)
 
-  console.log(accpected);
 
   const handleLogOut = () => {
     logOut()
@@ -17,12 +16,6 @@ const Header = () => {
       })
       .catch(error => console.error(error))
   }
-
-  const handleAccted = (event) => {
-
-    setAccpected(event.target.checkbox);
-  }
-
 
   return (
     <div className='px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
@@ -130,15 +123,9 @@ const Header = () => {
           }
 
           <li>
-            <label for="Toggle2" className="inline-flex items-center space-x-4 cursor-pointer dark:text-black">
-              <span>This</span>
-              <span onClick={handleAccted} className="relative">
-                <input id="Toggle2" type="checkbox" className="hidden peer" />
-                <div className="w-10 h-4 rounded-full shadow dark:bg-gray-600 peer-checked:dark:bg-violet-400"></div>
-                <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto dark:bg-violet-400"></div>
-              </span>
-              <span>That</span>
-            </label>
+            <button onClick={() => setShow(!show)} > {
+              show ?  <FaMoon></FaMoon> : <FaSun></FaSun>
+            }</button>
           </li>
 
         </ul>
