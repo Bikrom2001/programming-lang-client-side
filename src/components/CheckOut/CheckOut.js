@@ -4,6 +4,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 const CheckOut = () => {
     const courses = useLoaderData();
     const {title, name, AuthorImage, courseDate} = courses; 
+
     return (
         <div className="dark:bg-gray-800 dark:text-gray-100 pt-6">
             <div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-gray-900">
