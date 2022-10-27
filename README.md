@@ -1,3 +1,39 @@
+# Developer-Grid-Quiz-Apps
+Global-Online-Programming-language-courses
+
+## Live Link
+Hosted in Firebase -> [Global-Online-Programming-language-courses-client]()
+
+## Live server Link
+Hosted in vercel -> [Global-Online-Programming-language-server](https://programming-lang-server-side.vercel.app/)
+
+## Our Courses - Steps to rewarding IT Career
+Our superlative selection of courses has been specifically designed to help industry professionals work with today's best-of-breed automation tools. It is our objective to make our students professional and experienced at what they learn.
+
+## Description For Website 
+1. Global-Online-Programming-language-courses You can test your skills
+2. This website has a create blog page and 3 Frequently Asked Questions.
+3. Data is loaded dynamically from server and that data is shown in other components
+4. This website is powered by Taster and Sources data from a react-to-pdf package.
+5. Login and user created and your profile
+6. This website uses Firebase authentication and verfiy user
+
+## React Router Dom v6.4 
+Documentation Link -> [Link](https://reactrouter.com/en/main/start/overview)
+
+## Resources & Credits
+Tailwind Components -> 
+[Mamba UI](https://www.mambaui.com/)
+[Kitwind](https://kitwind.io/products/kometa/components)
+
+## Other Resources
+Icon -> [react icons](https://react-icons.github.io/react-icons/)
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
